@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f4">
+  <meta name="description" content="Aijia Yao is an EECS PhD candidate at MIT studying advanced semiconductor devices and energy-efficient computing.">
+  <title>Aijia Yao | MIT EECS</title>
+  <style>
+    :root {
+      --paper: #f7f7f4;
+      --ink: #20241f;
+      --muted: #69716b;
+      --green: #52694d;
+      --line: #d9ddd5;
+      --white: #fff;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.65 var(--sans); }
+    a { color: var(--green); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: #283e27; }
+    .shell { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+    header { height: 76px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .brand { color: var(--ink); font-family: var(--serif); font-size: 21px; font-weight: 700; text-decoration: none; letter-spacing: -.02em; }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a { color: var(--muted); font-size: 13px; text-decoration: none; }
+    nav a:hover { color: var(--ink); }
+    .hero { padding: 86px 0 76px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(250px, .7fr); gap: 72px; align-items: center; }
+    .eyebrow { margin: 0 0 15px; color: var(--green); text-transform: uppercase; letter-spacing: .14em; font-size: 11px; font-weight: 700; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 18px; font: 500 clamp(46px, 6.5vw, 76px)/1.04 var(--serif); letter-spacing: -.045em; }
+    .hero-copy { max-width: 650px; color: #535b54; font-size: 17px; }
+    .hero-copy strong { color: var(--ink); font-weight: 600; }
+    .hero-links { margin-top: 25px; display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; }
+    .portrait-wrap { justify-self: end; width: min(100%, 305px); position: relative; }
+    .portrait { display: block; width: 100%; aspect-ratio: .82; object-fit: cover; object-position: center; filter: saturate(.78); }
+    .portrait-wrap::after { content: ""; position: absolute; inset: 13px -13px -13px 13px; border: 1px solid #aab5a5; z-index: -1; }
+    .caption { margin: 20px 0 0; text-align: right; color: var(--muted); font: italic 12px var(--serif); }
+    section { padding: 64px 0; border-top: 1px solid var(--line); }
+    .section-head { display: grid; grid-template-columns: 220px 1fr; gap: 35px; margin-bottom: 34px; }
+    .section-label { color: var(--green); text-transform: uppercase; letter-spacing: .13em; font-size: 11px; font-weight: 700; }
+    h2 { margin: 0; font: 500 33px/1.2 var(--serif); letter-spacing: -.025em; }
+    h3 { margin-bottom: 7px; font: 600 18px/1.35 var(--serif); }
+    .section-intro { max-width: 680px; color: var(--muted); font-size: 14px; }
+    .updates { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .update-card { min-height: 180px; background: var(--white); border: 1px solid #e7e9e3; padding: 22px; }
+    .date { margin-bottom: 12px; color: var(--green); font-size: 10px; text-transform: uppercase; letter-spacing: .11em; font-weight: 700; }
+    .update-card p { margin: 0; color: #5d655e; font-size: 13px; }
+    .research-grid { display: grid; grid-template-columns: 220px 1fr; gap: 22px 35px; }
+    .research-item { border-bottom: 1px solid var(--line); padding: 0 0 21px; }
+    .research-item p { max-width: 690px; margin: 0; color: #5d655e; font-size: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 13px; }
+    .tag { background: #e9ede6; padding: 3px 9px; color: #566350; font-size: 10px; letter-spacing: .02em; }
+    .pub-list { list-style: none; margin: 0; padding: 0; }
+    .pub-list li { position: relative; padding: 0 0 20px 20px; border-bottom: 1px solid var(--line); margin-bottom: 20px; color: #515a52; font-size: 14px; }
+    .pub-list li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+    .pub-list strong { color: var(--ink); font-weight: 600; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
+    .about-grid p { color: #5d655e; font-size: 14px; }
+    .contact-box { display: flex; justify-content: space-between; align-items: center; gap: 24px; background: #e9ede6; padding: 28px 32px; }
+    .contact-box p { margin: 0; color: #566050; font-size: 14px; }
+    .contact-button { flex: none; padding: 9px 15px; border: 1px solid #aab5a5; color: var(--ink); text-decoration: none; font-size: 12px; }
+    footer { padding: 25px 0 32px; display: flex; justify-content: space-between; color: var(--muted); font-size: 11px; }
+    @media (max-width: 720px) {
+      .shell { width: min(100% - 34px, 560px); }
+      header { height: 65px; }
+      nav { gap: 15px; }
+      nav a { font-size: 11px; }
+      .hero { padding: 58px 0 55px; grid-template-columns: 1fr; gap: 35px; }
+      .portrait-wrap { justify-self: start; width: 210px; }
+      .caption { text-align: left; }
+      section { padding: 48px 0; }
+      .section-head, .research-grid { grid-template-columns: 1fr; gap: 12px; }
+      .updates { grid-template-columns: 1fr; }
+      .update-card { min-height: auto; }
+      .about-grid { grid-template-columns: 1fr; gap: 10px; }
+      .contact-box { align-items: flex-start; flex-direction: column; padding: 22px; }
+    }
+    @media (max-width: 430px) { nav { gap: 10px; } nav a { font-size: 10px; } .brand { font-size: 18px; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a class="brand" href="#top">Aijia Yao</a>
+      <nav aria-label="Main navigation">
+        <a href="#research">Research</a>
+        <a href="#updates">Updates</a>
+        <a href="#publications">Publications</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" style="border:0">
+        <div>
+          <p class="eyebrow">Ph.D. Candidate · MIT EECS</p>
+          <h1>Engineering<br>at the bottom.</h1>
+          <p class="hero-copy">I study how <strong>emerging semiconductor devices</strong> can be modeled, optimized, and integrated into energy-efficient computing systems—connecting device physics, circuit design, and machine learning.</p>
+          <div class="hero-links">
+            <a href="mailto:aijia@mit.edu">Email</a>
+            <a href="https://scholar.google.com/citations?user=9vVyUJ8AAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+        <div class="portrait-wrap">
+          <img class="portrait" src="https://img1.wsimg.com/isteam/ip/af442493-9ff7-41be-8908-af6bdc48df24/IMG_1834.PNG/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:1000,cg:true" alt="Portrait of Aijia Yao" onerror="this.style.display='none'">
+          <p class="caption">“There's Plenty of Room at the Bottom” · Richard Feynman, 1959</p>
+        </div>
+      </section>
+
+      <section id="updates">
+        <div class="section-head">
+          <div class="section-label">Field notes</div>
+          <div><h2>Recent updates</h2><p class="section-intro">A few milestones, projects, and things I have been learning along the way.</p></div>
+        </div>
+        <div class="updates">
+          <article class="update-card"><div class="date">Summer 2026</div><h3>Industry perspective</h3><p>Completed my first summer internship at Apple, learning from an outstanding team and gaining experience in applied engineering.</p></article>
+          <article class="update-card"><div class="date">2025</div><h3>Making and teaching</h3><p>Explored hands-on design through MIT’s How to Make (Almost) Anything and shared a lecture on neuroscience-inspired circuits and AI algorithms.</p></article>
+          <article class="update-card"><div class="date">2025</div><h3>SUPREME Annual Review</h3><p>Presented at Cornell University and received the Best Lightning Talk Award.</p></article>
+        </div>
+      </section>
+
+      <section id="research">
+        <div class="section-head">
+          <div class="section-label">Research</div>
+          <div><h2>From devices to systems</h2><p class="section-intro">My work asks how new materials and device architectures can translate into useful improvements in computing.</p></div>
+        </div>
+        <div class="research-grid">
+          <div class="section-label">Ongoing</div>
+          <article class="research-item"><h3>Emerging devices for energy-efficient computing</h3><p>Developing and modeling 2D-material transistors, multichannel architectures, and integration strategies for scaled technology. The work spans device performance, reliability, compact modeling, and design-technology co-optimization.</p><div class="tags"><span class="tag">2D materials</span><span class="tag">Device modeling</span><span class="tag">DTCO</span><span class="tag">VLSI</span></div></article>
+          <div class="section-label">Exploring</div>
+          <article class="research-item"><h3>Machine learning for scientific and engineering problems</h3><p>Building on experience with NLP and literature mining, and exploring data-driven methods for extracting knowledge and supporting design across materials and microelectronics.</p><div class="tags"><span class="tag">Machine learning</span><span class="tag">NLP</span><span class="tag">Scientific discovery</span></div></article>
+          <div class="section-label">Earlier work</div>
+          <article class="research-item"><h3>Text mining for 2D-material synthesis</h3><p>Developed a text-mining workflow to extract and analyze chemical vapor deposition recipes from research papers on 2D materials, graphene, and carbon nanotubes.</p><div class="tags"><span class="tag">Text mining</span><span class="tag">Materials informatics</span></div></article>
+        </div>
+      </section>
+
+      <section id="publications">
+        <div class="section-head">
+          <div class="section-label">Selected publications</div>
+          <div><h2>Recent work</h2><p class="section-intro">Selected papers on 2D semiconductor devices, reliability, and cryogenic operation. † indicates equal contribution.</p></div>
+        </div>
+        <ul class="pub-list">
+          <li><strong>Performance Demonstration of MoS₂ Transistors at Cryogenic Temperatures Down to 6 K for Ultralow-Power Electronics.</strong> Symposium on VLSI Technology and Circuits, 2026.</li>
+          <li><strong>Reliability Study of MoS₂ Transistors with Channel Length Scaling and Sub-1-nm EOT.</strong> IEEE International Electron Devices Meeting (IEDM), 2025.</li>
+          <li><strong>Enhancement-Mode Multichannel MoS₂ Transistor with Spacer Engineering and DTCO.</strong> IEEE International Electron Devices Meeting (IEDM), 2024.</li>
+        </ul>
+        <p class="section-intro">See my <a href="https://scholar.google.com/citations?user=9vVyUJ8AAAAJ" target="_blank" rel="noreferrer">Google Scholar profile</a> for the full publication list.</p>
+      </section>
+
+      <section id="about">
+        <div class="section-head">
+          <div class="section-label">About</div>
+          <div><h2>Curiosity beyond the lab</h2></div>
+        </div>
+        <div class="about-grid">
+          <p>I am a Ph.D. candidate in Electrical Engineering and Computer Science at MIT, advised by Professor Tomás Palacios. My research sits at the intersection of semiconductor devices, circuits, and computing systems.</p>
+          <p>Outside research, I enjoy exploring cities and museums, making photographs and videos, designing characters, debating in Chinese and English, and playing basketball. I also care deeply about teaching and making technical ideas accessible.</p>
+        </div>
+        <p style="margin:27px 0 0"><a href="https://aijia-yao.com/arts">View art and photography →</a> &nbsp; · &nbsp; <a href="https://aijia-yao.com/teaching">Teaching</a> &nbsp; · &nbsp; <a href="https://aijia-yao.com/projects">Projects</a></p>
+      </section>
+
+      <section id="contact">
+        <div class="contact-box"><div><h2 style="font-size:26px;margin-bottom:6px">Let’s connect.</h2><p>For research, collaboration, or just to say hello.</p></div><a class="contact-button" href="mailto:aijia@mit.edu">aijia@mit.edu ↗</a></div>
+      </section>
+    </main>
+    <footer><span>© 2026 Aijia Yao</span><span>Made with curiosity · Cambridge, MA</span></footer>
+  </div>
+</body>
+</html>
